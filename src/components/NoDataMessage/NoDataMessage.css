@@ -1,0 +1,14 @@
+.no-data-message {
+  text-align: center;
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0 1rem;
+  color: #1f2937;
+}
+
+@media (max-width: 480px) {
+  .no-data-message {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+  }
+}

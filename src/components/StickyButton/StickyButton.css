@@ -1,0 +1,29 @@
+.sticky-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366; /* WhatsApp green */
+  color: white;
+  border: none;
+  border-radius: 50%; /* makes the button a perfect circle */
+  width: 56px; /* fixed width and height for circle */
+  height: 56px;
+  font-size: 0; /* hide label text */
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.sticky-button:hover {
+  background-color: #1ebe57; /* slightly darker green on hover */
+}
+
+.sticky-icon {
+  font-size: 28px; /* bigger icon inside the circle */
+  color: white;
+  margin: 0; /* no margin needed as icon is centered */
+}

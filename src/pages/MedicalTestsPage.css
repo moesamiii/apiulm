@@ -1,0 +1,137 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal overflow */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.medical-tests-page {
+  width: 100vw; /* full viewport width */
+  margin: 0; /* remove horizontal auto margin */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; /* include padding in width calculations */
+}
+
+.page-title {
+  text-align: center;
+  margin: 2rem 0; /* Top and bottom: 2rem, left and right: 0 */
+  color: #1f2937;
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 0 1rem; /* left and right padding */
+  box-sizing: border-box;
+  display: none;
+}
+
+.medical-tests-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(1, minmax(250px, 1fr));
+  width: 100%;
+  padding-left: 1rem; /* horizontal padding for grid */
+  padding-right: 1rem;
+  margin: 0; /* no auto margin */
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .medical-tests-page {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .page-title {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .medical-tests-grid {
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .medical-tests-page {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .medical-tests-grid {
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .medical-tests-page {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .page-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .medical-tests-grid {
+    gap: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.toggle-button-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.toggle-button {
+  background-color: #007bff; /* blue */
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgb(0 123 255 / 0.3);
+}
+
+.toggle-button:hover {
+  background-color: #0056b3; /* darker blue on hover */
+}
+
+.toggle-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+@media (max-width: 640px) {
+  .medical-tests-grid {
+    display: flex; /* switch from grid to flex */
+    flex-wrap: nowrap; /* no wrapping, keep all items in one row */
+    overflow-x: auto; /* enable horizontal scroll */
+    -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+    gap: 1rem; /* spacing between items */
+  }
+
+  /* Optional: make each item have a fixed min-width for consistent slider cards */
+  .medical-tests-grid > * {
+    min-width: 100px; /* same as minmax in grid */
+    flex: 0 0 auto; /* prevent shrinking or growing */
+  }
+}
