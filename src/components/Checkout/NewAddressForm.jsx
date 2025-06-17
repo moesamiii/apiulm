@@ -128,8 +128,8 @@ const NewAddressForm = () => {
         </div>
       ) : (
         <div className="bg-white p-6 rounded-xl shadow-sm" dir="rtl">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-base font-semibold text-[#1C1C1C]">
+          <div className="flex justify-between items-center mb-4 bg-transparent">
+            <h3 className="text-base font-semibold text-gray-800 bg-transparent">
               إضافة عنوان جديد
             </h3>
             <button
@@ -137,7 +137,7 @@ const NewAddressForm = () => {
                 setShowForm(false);
                 setStatusMessage("");
               }}
-              className="text-gray-500 hover:text-gray-700"
+              className="text-gray-500 hover:text-gray-700 bg-transparent focus:bg-transparent active:bg-transparent"
             >
               ✕
             </button>
