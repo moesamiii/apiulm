@@ -189,23 +189,23 @@ const NewAddressForm = () => {
               onChange={handleChange}
             />
 
-            <div className="flex justify-between items-center mt-2">
+            <div className="flex" dir="ltr">
               <button
                 type="submit"
                 disabled={!tokenReady}
                 className={`bg-[#0798F1] hover:bg-[#007dd1] text-white text-sm font-medium px-6 py-2 rounded-[8px] ${
                   !tokenReady ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+                } mr-auto`}
               >
                 حفظ
               </button>
-
-              {statusMessage && (
-                <p className="text-sm text-right text-[#1C1C1C]">
-                  {statusMessage}
-                </p>
-              )}
             </div>
+
+            {statusMessage && (
+              <p className="text-red-500 text-sm mt-2 text-right">
+                {statusMessage}
+              </p>
+            )}
           </form>
         </div>
       )}
