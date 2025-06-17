@@ -20,6 +20,7 @@ const SavedAddresses = () => {
     country: "",
     postalCode: "",
   });
+  const [selectedAddressId, setSelectedAddressId] = useState(null); // New state for selected address
 
   const [deleteModal, setDeleteModal] = useState({
     isOpen: false,
@@ -51,6 +52,10 @@ const SavedAddresses = () => {
 
         const data = await res.json();
         setAddresses(data.data || []);
+        // Auto-select first address if available
+        if (data.data && data.data.length > 0) {
+          setSelectedAddressId(data.data[0].id);
+        }
       } catch (err) {
         console.error("Error fetching addresses:", err);
         alert("فشل تحميل العناوين");
@@ -81,6 +86,10 @@ const SavedAddresses = () => {
       setAddresses((prev) =>
         prev.filter((addr) => addr.id !== deleteModal.addressId)
       );
+      // If deleted address was selected, clear selection
+      if (selectedAddressId === deleteModal.addressId) {
+        setSelectedAddressId(addresses.length > 1 ? addresses[1].id : null);
+      }
       setDeleteModal({ isOpen: false, addressId: null });
     } catch (err) {
       console.error("Error deleting address:", err);
@@ -134,42 +143,37 @@ const SavedAddresses = () => {
         <p className="text-gray-500">جاري التحميل...</p>
       ) : (
         <div className="space-y-3">
-          {addresses.map((address, i) => (
+          {addresses.map((address) => (
             <div
               key={address.id}
-              className={`relative rounded-[8px] border p-4 text-sm transition ${
-                i === 0
+              className={`relative rounded-[8px] border p-4 text-sm transition cursor-pointer ${
+                selectedAddressId === address.id
                   ? "bg-[#F3FAFE] border-[#ADE4FF]"
                   : "bg-white border-[#D8D8D8]"
               }`}
+              onClick={() => setSelectedAddressId(address.id)}
             >
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-2">
-                  {i === 0 ? (
-                    <div className="w-5 h-5 rounded-full bg-[#0099FF] flex items-center justify-center">
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M5 13l4 4L19 7"
-                          stroke="white"
-                          strokeWidth="3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  ) : (
-                    <div className="w-5 h-5 rounded-full border border-gray-400" />
-                  )}
+                  <div
+                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                      selectedAddressId === address.id
+                        ? "border-[#0099FF] bg-[#0099FF]"
+                        : "border-gray-400"
+                    }`}
+                  >
+                    {selectedAddressId === address.id && (
+                      <div className="w-2 h-2 rounded-full bg-white"></div>
+                    )}
+                  </div>
                   <p className="font-bold text-sm text-[#1C1C1C]">
                     {address.givenName} {address.surName}
                   </p>
                 </div>
-                <div className="flex gap-2">
+                <div
+                  className="flex gap-2"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <button
                     onClick={() => handleEdit(address)}
                     className="w-[24px] h-[24px] p-[2px] bg-white rounded-md shadow-sm hover:opacity-80 transition"
