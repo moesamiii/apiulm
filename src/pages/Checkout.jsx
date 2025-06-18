@@ -6,42 +6,54 @@ import SavedAddresses from "../components/Checkout/SavedAddresses";
 import NewAddressForm from "../components/Checkout/NewAddressForm";
 import PaymentMethod from "../components/Checkout/PaymentMethod";
 import CheckoutFooter from "../components/Checkout/CheckoutFooter";
+import confirmationIcon from "../assets/icons/confirmation.png";
 
 // ✅ Modal: Confirm Payment
+
 const PaymentConfirmationModal = ({ isOpen, onConfirm, onCancel }) => {
   if (!isOpen) return null;
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-2xl p-6 w-full max-w-md text-center shadow-lg relative">
+      <div className="bg-[#FEFEFE] rounded-[16px] p-6 w-[556px] text-center shadow-lg relative">
+        {/* زر الإغلاق */}
         <button
           onClick={onCancel}
-          className="absolute top-4 left-4 text-gray-400 hover:text-gray-600"
+          className="absolute top-4 left-4 w-9 h-9 flex items-center justify-center rounded-full shadow-md bg-white text-gray-400 hover:text-gray-600"
         >
           ✕
         </button>
+
+        {/* أيقونة التأكيد */}
         <div className="flex justify-center mb-4">
-          <div className="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/1828/1828490.png"
-              alt="Lock Icon"
-              className="w-8 h-8"
-            />
-          </div>
+          <img
+            src={confirmationIcon}
+            alt="Confirmation Icon"
+            className="w-[72px] h-[82px]"
+          />
         </div>
-        <h2 className="text-xl font-bold mb-2">تأكيد الدفع</h2>
-        <p className="text-gray-600 mb-6">
+
+        {/* العنوان */}
+        <h2 className="text-[24px] font-bold text-black mb-3 leading-[100%]">
+          تأكيد الدفع
+        </h2>
+
+        {/* النص */}
+        <p className="text-[#6F6F6F] text-base mb-6 leading-snug">
           سيتم خصم المبلغ من بطاقتك بعد تأكيد العملية. هل ترغب في المتابعة؟
         </p>
-        <div className="flex justify-between gap-4">
+
+        {/* الأزرار */}
+        <div className="flex justify-center gap-4 w-full">
           <button
             onClick={onCancel}
-            className="w-full border border-[#0798F1] text-[#0798F1] py-2 rounded-lg font-semibold text-sm"
+            className="w-full max-w-[200px] border border-[#0798F1] text-[#0798F1] text-[16px] font-semibold py-2 rounded-[12px]"
           >
             إلغاء
           </button>
           <button
             onClick={onConfirm}
-            className="w-full bg-[#0798F1] hover:bg-[#007dd1] text-white py-2 rounded-lg font-semibold text-sm"
+            className="w-full max-w-[200px] bg-[#0798F1] hover:bg-[#007dd1] text-white text-[16px] font-semibold py-2 rounded-[12px]"
           >
             تأكيد الدفع
           </button>
@@ -51,41 +63,52 @@ const PaymentConfirmationModal = ({ isOpen, onConfirm, onCancel }) => {
   );
 };
 
-// ✅ Modal: Success After Payment
+import successIcon from "../assets/icons/success.png"; // ✅ غيّر المسار حسب مكان حفظك للصورة
+
 const PaymentSuccessModal = ({ isOpen, onClose, onEdit }) => {
   if (!isOpen) return null;
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-2xl p-6 w-full max-w-md text-center shadow-lg relative">
+      <div className="bg-[#FEFEFE] rounded-[16px] p-6 w-[556px] text-center shadow-lg relative">
+        {/* زر الإغلاق */}
         <button
           onClick={onClose}
-          className="absolute top-4 left-4 text-gray-400 hover:text-gray-600"
+          className="absolute top-4 left-4 w-9 h-9 flex items-center justify-center rounded-full shadow-md bg-white text-gray-400 hover:text-gray-600"
         >
           ✕
         </button>
+
+        {/* الأيقونة */}
         <div className="flex justify-center mb-4">
-          <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/845/845646.png"
-              alt="Check Icon"
-              className="w-8 h-8"
-            />
-          </div>
+          <img
+            src={successIcon}
+            alt="Success Icon"
+            className="w-[72px] h-[72px]"
+          />
         </div>
-        <h2 className="text-xl font-bold mb-2">تم إرسال طلبك!</h2>
-        <p className="text-gray-600 mb-6">
-          تم إرسال طلب التأمين بنجاح، سيتم مراجعته والموافقة عليه قريباً.
+
+        {/* العنوان */}
+        <h2 className="text-[24px] font-bold text-black mb-2">
+          تم إرسال طلبك!
+        </h2>
+
+        {/* النص */}
+        <p className="text-[#6F6F6F] text-base mb-6 leading-snug">
+          تم إرسال طلب التأمين بنجاح، سيتم مراجعته والموافقة عليه قريبًا.
         </p>
-        <div className="flex justify-between gap-4">
+
+        {/* الأزرار */}
+        <div className="flex justify-center gap-4 w-full">
           <button
             onClick={onEdit}
-            className="w-full border border-[#0798F1] text-[#0798F1] py-2 rounded-lg font-semibold text-sm"
+            className="w-full max-w-[220px] border border-[#0798F1] text-[#0798F1] text-[16px] font-semibold py-[13px] rounded-[8px]"
           >
             تعديل الطلب
           </button>
           <button
             onClick={onClose}
-            className="w-full bg-[#0798F1] hover:bg-[#007dd1] text-white py-2 rounded-lg font-semibold text-sm"
+            className="w-full max-w-[220px] bg-[#0798F1] hover:bg-[#007dd1] text-white text-[16px] font-semibold py-[13px] rounded-[8px]"
           >
             موافق
           </button>
