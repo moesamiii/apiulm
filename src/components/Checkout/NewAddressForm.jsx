@@ -193,9 +193,9 @@ const NewAddressForm = () => {
               <button
                 type="submit"
                 disabled={!tokenReady}
-                className={`bg-[#0798F1] hover:bg-[#007dd1] text-white text-sm font-medium px-6 py-2 rounded-[8px] ${
+                className={`relative text-[#0798F1] text-[16px] font-medium bg-transparent p-0 m-0 border-none after:content-[''] after:block after:h-[2px] after:bg-[#0798F1] after:mt-[2px] after:w-full ${
                   !tokenReady ? "opacity-50 cursor-not-allowed" : ""
-                } mr-auto`}
+                }`}
               >
                 حفظ
               </button>
