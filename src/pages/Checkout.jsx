@@ -151,8 +151,15 @@ const Checkout = () => {
       <CheckoutBreadcrumb />
 
       <main className="max-w-[1280px] mx-auto mt-6 p-4 md:p-8 flex flex-col lg:flex-row-reverse gap-[20px] bg-white rounded-xl shadow-sm">
-        <OrderSummary />
-        <section className="w-full lg:w-1/2 flex flex-col gap-6">
+        {/* OrderSummary on the right with fixed width from Figma */}
+        <aside className="w-full lg:w-[630px] flex-shrink-0">
+          <div className="bg-white border border-[#FCFCFC] rounded-[24px] p-6 flex flex-col gap-4 text-right">
+            <OrderSummary />
+          </div>
+        </aside>
+
+        {/* Left section: Addresses + Payment */}
+        <section className="w-full lg:flex-1 flex flex-col gap-6">
           <SavedAddresses />
           <NewAddressForm />
           <PaymentMethod />
