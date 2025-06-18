@@ -116,12 +116,12 @@ const NewAddressForm = () => {
         <div className="flex justify-center items-center py-6">
           <button
             onClick={() => setShowForm(true)}
-            className="flex items-center gap-2 text-blue-500 hover:text-blue-600 bg-transparent active:bg-transparent focus:bg-transparent underline decoration-current"
+            className="flex items-center gap-2 text-[#0798F1] hover:text-[#0798F1] bg-transparent active:bg-transparent focus:bg-transparent underline decoration-current"
           >
             <span className="text-inherit bg-transparent">
               إضافة عنوان جديد
             </span>
-            <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center">
+            <span className="bg-[#0798F1] text-white rounded-full w-6 h-6 flex items-center justify-center">
               +
             </span>
           </button>
