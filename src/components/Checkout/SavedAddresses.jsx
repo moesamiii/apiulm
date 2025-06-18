@@ -163,7 +163,18 @@ const SavedAddresses = () => {
                     }`}
                   >
                     {selectedAddressId === address.id && (
-                      <div className="w-2 h-2 rounded-full bg-white"></div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-4 h-4 text-white"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-7.071 7.071a1 1 0 01-1.414 0L3.293 9.414a1 1 0 111.414-1.414L9 12.586l6.293-6.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
                     )}
                   </div>
                   <p className="font-bold text-sm text-[#1C1C1C]">
