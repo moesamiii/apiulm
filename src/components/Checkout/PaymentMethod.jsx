@@ -82,12 +82,12 @@ const PaymentMethod = () => {
         {/* Content and Range */}
         <div className="flex items-center gap-3 flex-1 justify-between">
           {/* Text content */}
-          <div className="flex flex-col items-end text-right">
+          <div className="flex items-center justify-between w-full text-right">
             <span className="text-[#1C1C1C] text-[14px] font-normal">
-              دفع بالتقسيط عن طريق البنك
+              دفع بالتقسيط عن طريق المواقع
             </span>
             <span className="text-[#0798F1] text-[14px] font-medium text-left">
-              من 10 إلى JOD 1,000
+              من 10 إلى 1,000 <span className="font-semibold">JOD</span>
             </span>
           </div>
 
@@ -111,17 +111,13 @@ const PaymentMethod = () => {
         </div>
 
         {/* Text content (right side in RTL) */}
-        <div className="flex items-center gap-3 flex-1 justify-between">
-          <div className="flex flex-col items-end text-right">
-            <span className="text-[#1C1C1C] text-[14px] font-normal">
-              دفع بالتقسيط عن طريق الموقع
-            </span>
-            <span className="text-[#0798F1] text-[14px] font-medium">
-              من 1,000 إلى JOD 10,000
-            </span>
-          </div>
-          {/* No icons needed here */}
-          <div className="w-[1px]" />
+        <div className="flex items-center justify-between w-full pr-3">
+          <span className="text-[#1C1C1C] text-[14px] font-normal">
+            دفع بالتقسيط عن طريق البنك
+          </span>
+          <span className="text-[#0798F1] text-[14px] font-medium text-left">
+            من 10 إلى 1,000 <span className="font-semibold">JOD</span>
+          </span>
         </div>
       </label>
     </div>
