@@ -166,10 +166,10 @@ const Checkout = () => {
         </section>
       </main>
 
-      <div className="w-full flex justify-center px-4 md:px-[80px] mt-8">
+      <div className="w-full flex justify-center mt-8">
         <button
           onClick={handlePaymentClick}
-          className="w-full max-w-[400px] bg-[#0798F1] hover:bg-[#007dd1] text-white py-3 rounded-lg font-semibold text-sm"
+          className="w-[640px] h-[52px] bg-[#0798F1] hover:bg-[#007dd1] text-white text-[18px] font-medium rounded-[8px] px-[22px] py-[6px] leading-[100%]"
         >
           إتمام الدفع
         </button>

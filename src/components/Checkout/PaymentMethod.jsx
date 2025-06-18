@@ -228,26 +228,6 @@ const PaymentMethod = () => {
           </motion.label>
         ))}
       </AnimatePresence>
-
-      {/* Confirmation button that appears when a method is selected */}
-      <AnimatePresence>
-        {selectedMethod && (
-          <motion.button
-            className="w-full bg-[#0798F1] text-white py-3 rounded-[12px] font-medium mt-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            whileHover={{
-              scale: 1.02,
-              boxShadow: "0 4px 12px rgba(7, 152, 241, 0.3)",
-            }}
-            whileTap={{ scale: 0.98 }}
-          >
-            تأكيد طريقة الدفع
-          </motion.button>
-        )}
-      </AnimatePresence>
     </motion.div>
   );
 };
