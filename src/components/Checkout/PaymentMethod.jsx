@@ -151,7 +151,7 @@ const PaymentMethod = () => {
         {paymentMethods.map((method) => (
           <motion.label
             key={method.id}
-            className={`flex items-center justify-between border rounded-[16px] px-4 py-4 cursor-pointer ${
+            className={`flex items-center justify-between gap-3 border rounded-[16px] px-4 py-4 cursor-pointer ${
               selectedMethod === method.id
                 ? "border-[#0798F1]"
                 : "border-[#D8D8D8]"
@@ -164,57 +164,57 @@ const PaymentMethod = () => {
             onClick={() => setSelectedMethod(method.id)}
             layout
           >
-            <div className="relative flex items-center">
-              <input
-                type="radio"
-                name="payment"
-                className="absolute opacity-0 w-0 h-0 peer"
-                checked={selectedMethod === method.id}
-                onChange={() => {}}
-              />
-              <div
-                className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                  selectedMethod === method.id
-                    ? "border-[#0798F1]"
-                    : "border-[#D8D8D8]"
-                }`}
-              >
-                <motion.div
-                  className="w-2.5 h-2.5 bg-[#0798F1] rounded-full"
-                  variants={radioVariants}
-                  animate={
-                    selectedMethod === method.id ? "selected" : "unselected"
-                  }
+            <div className="flex items-center gap-3 flex-1">
+              <div className="relative flex items-center">
+                <input
+                  type="radio"
+                  name="payment"
+                  className="absolute opacity-0 w-0 h-0 peer"
+                  checked={selectedMethod === method.id}
+                  onChange={() => {}}
                 />
+                <div
+                  className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                    selectedMethod === method.id
+                      ? "border-[#0798F1]"
+                      : "border-[#D8D8D8]"
+                  }`}
+                >
+                  <motion.div
+                    className="w-2.5 h-2.5 bg-[#0798F1] rounded-full"
+                    variants={radioVariants}
+                    animate={
+                      selectedMethod === method.id ? "selected" : "unselected"
+                    }
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="flex items-center gap-3 flex-1 justify-between">
               <div className="flex flex-col items-end text-right">
                 <span className="text-[#1C1C1C] text-[14px] font-normal">
                   {method.label}
                 </span>
               </div>
-
-              {method.icons.length > 0 && (
-                <div className="flex gap-2">
-                  {method.icons.map((icon, index) => (
-                    <motion.img
-                      key={index}
-                      src={icon}
-                      alt="Payment method"
-                      className="w-[42px] h-[42px]"
-                      variants={iconVariants}
-                      whileHover="hover"
-                      custom={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.4 + index * 0.1 }}
-                    />
-                  ))}
-                </div>
-              )}
             </div>
+
+            {method.icons.length > 0 && (
+              <div className="flex gap-2">
+                {method.icons.map((icon, index) => (
+                  <motion.img
+                    key={index}
+                    src={icon}
+                    alt="Payment method"
+                    className="w-[42px] h-[42px]"
+                    variants={iconVariants}
+                    whileHover="hover"
+                    custom={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4 + index * 0.1 }}
+                  />
+                ))}
+              </div>
+            )}
 
             {method.amount && (
               <motion.span
