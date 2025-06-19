@@ -132,7 +132,7 @@ const SavedAddresses = () => {
 
   return (
     <div
-      className="bg-white p-6 rounded-xl shadow-sm w-full max-w-[582px] text-right"
+      className="bg-white p-6 rounded-xl  max-w-[582px] text-right"
       dir="rtl"
     >
       <h2 className="text-xl font-bold mb-4 text-[#1C1C1C]">

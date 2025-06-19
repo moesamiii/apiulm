@@ -4,6 +4,8 @@ import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import App from "../App";
 
 import PrivateRoute from "../components/PrivateRoute"; //
+import MedicalTourismPage from "../pages/MedicalTourismPage";
+
 const ShoppingCart = lazy(() => import("../components/ShoppingCart")); //
 const AboutUsPage = lazy(() => import("../pages/AboutUsPage"));
 const ServicesPage = lazy(() => import("../pages/Service"));
@@ -23,6 +25,8 @@ const AppRouter = () => {
           {/* Lazy load services */}
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/figmaButton" element={<FigmaButton />} />
+
+          <Route path="/medical-tourism" element={<MedicalTourismPage />} />
 
           <Route
             path="/checkout"
